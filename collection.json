@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "c641147d-08a8-482a-a876-72aaccb99531",
+		"name": "1NewmanRun",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "uuid GET Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();",
+							"pm.collectionVariables.set(\"orderID\", response.uuid);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "httpbin.org/uuid",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"uuid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Request With Params Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"postman.clearEnvironmentVariable(\"access_token\");",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"//tests[\"User created successfully\"] = jsonData.message === 'User created successfully.';",
+							"",
+							"// tests[\"Response time is less than 200ms\"] = responseTime < 800;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"tests[\"Content-Type is 'application/json'\"] = postman.getResponseHeader(\"Content-Type\") === 'application/json';",
+							"",
+							"var reusableTests = () =>{",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
+							"});",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"response_body_string\");",
+							"});",
+							"};",
+							"",
+							"pm.environment.set(\"reusableTests\", reusableTests.toString());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "C-Foo",
+						"value": "Bar",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"user11111\",\n\t\"password\": \"abcxyz\"\n}"
+				},
+				"url": {
+					"raw": "https://httpbin.org/get?name=John&age=32&email=sherdg@i.ua",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John"
+						},
+						{
+							"key": "age",
+							"value": "32"
+						},
+						{
+							"key": "email",
+							"value": "sherdg@i.ua"
+						}
+					]
+				},
+				"description": "https://httpbin.org/get?name=John&age=32&email=sherdg@i.ua"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "orderID",
+			"value": ""
+		}
+	]
+}

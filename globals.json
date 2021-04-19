@@ -1,0 +1,29 @@
+{
+	"id": "480069c0-754c-4602-86f0-f6f99ab64a92",
+	"values": [
+		{
+			"key": "customerID",
+			"value": 25,
+			"enabled": true
+		},
+		{
+			"key": "currentDate",
+			"value": 1599906593718,
+			"enabled": true
+		},
+		{
+			"key": "orderID",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "postmanBDD",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2021-04-19T10:11:59.403Z",
+	"_postman_exported_using": "Postman/8.2.3"
+}

@@ -1,0 +1,34 @@
+{
+	"id": "52e71c93-074b-4b58-b078-fd8cb34052f3",
+	"name": "HTTPbin",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://httpbin.org/",
+			"enabled": true
+		},
+		{
+			"key": "user",
+			"value": "user",
+			"enabled": true
+		},
+		{
+			"key": "passwd",
+			"value": "passwd",
+			"enabled": true
+		},
+		{
+			"key": "reusableTests",
+			"value": "() =>{\npm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\npm.test(\"Body matches string\", function () {\n    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\n});\npm.test(\"Body is correct\", function () {\n    pm.response.to.have.body(\"response_body_string\");\n});\n}",
+			"enabled": true
+		},
+		{
+			"key": "mail",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-04-19T10:11:46.807Z",
+	"_postman_exported_using": "Postman/8.2.3"
+}
