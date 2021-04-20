@@ -1,8 +1,14 @@
-language: python
-python:
-- "3.6"
-- "nigthly"
+language: node_js
+node_js:
+- "8.2.1"
+
 install:
-- "pip install pytest"
-- "pip install requirements.txt"
-script: python -m pytest tests/
+- npm install newman
+
+before_script:
+- node --version
+- npm --version
+- node_modules/.bin/newman --version
+
+script:
+- node_modules/.bin/newman run collection.json -e environment.json -g globals
