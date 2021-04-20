@@ -11,4 +11,4 @@ before_script:
 - node_modules/.bin/newman --version
 
 script:
-- node_modules/.bin/newman run collection.json -e environment.json -g globals
+- node_modules/.bin/newman run collection.json -e environment.json -g globals.json
