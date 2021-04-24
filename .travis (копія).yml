@@ -1,8 +1,0 @@
-language: python
-python:
-- "3.6"
-- "nigthly"
-install:
-- "pip install pytest"
-- "pip install requirements.txt"
-script: python -m pytest tests/
